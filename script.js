@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "Imagenes/50160870708_71651ecbdc_k.jpg"
   ],
   download: "https://www.mediafire.com/file/mo1pl1jokfqo3y9/Cuphead.rar/file",
-  trailer: "https://www.youtube.com/watch?v=NN-9SQXoi50&ab_channel=GameTrailers"
+  trailer: "https://www.youtube.com/embed/NN-9SQXoi50"
 }
   ];
 
@@ -237,5 +237,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   renderGames();
 });
+
 
 
