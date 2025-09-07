@@ -112,6 +112,35 @@ document.addEventListener("DOMContentLoaded", function() {
   ],
   download: "https://www.mediafire.com/file/eu4bxs264jm3s52/Doki.Doki.Literature.Club.Plus.rar/file",
   trailer: "https://www.youtube.com/embed/kB1663FTpzU"
+},
+    {
+  id: 5,
+  title: "Cuphead",
+  description: "¡Bienvenido a Cuphead, el juego de acción y disparos que rinde homenaje a los dibujos animados de los años 30! Juega como Cuphead o Mugman en una aventura llena de jefes desafiantes y niveles llenos de acción. Con gráficos dibujados a mano, fondos pintados a mano y música de jazz original, Cuphead ofrece una experiencia única y desafiante.",
+  genre: "Run and Gun, Acción, Aventura, Cooperativo Local",
+  minReq: [
+    "SO: Windows 7",
+    "Procesador: Intel Core2 Duo E8400, 3.0GHz o AMD Athlon 64 X2 6000+, 3.0GHz o superior",
+    "Memoria: 3 GB de RAM",
+    "Gráficos: GeForce 9600 GT o AMD HD 3870 512MB o superior",
+    "DirectX: Versión 11",
+    "Almacenamiento: 4 GB de espacio disponible"
+  ],
+  recReq: [
+    "SO: Windows 7",
+    "Procesador: Intel Core2 Duo E8400, 3.0GHz o AMD Athlon 64 X2 6000+, 3.0GHz o superior",
+    "Memoria: 3 GB de RAM",
+    "Gráficos: GeForce 9600 GT o AMD HD 3870 512MB o superior",
+    "DirectX: Versión 11",
+    "Almacenamiento: 4 GB de espacio disponible"
+  ],
+  image: "Imagenes/lb-dmakDhvOzcyKZtbAYJbsdoYuMAsqH.jpg",
+  gallery: [
+    "Imagenes/Cuphead-jefes-generacion-xbox.jpg",
+    "Imagenes/50160870708_71651ecbdc_k.jpg"
+  ],
+  download: "https://www.mediafire.com/file/mo1pl1jokfqo3y9/Cuphead.rar/file",
+  trailer: "https://www.youtube.com/watch?v=NN-9SQXoi50&ab_channel=GameTrailers"
 }
   ];
 
@@ -208,3 +237,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
   renderGames();
 });
+
