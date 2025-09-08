@@ -145,6 +145,35 @@ document.addEventListener("DOMContentLoaded", function() {
     { name: "Fix Online", link: "https://www.mediafire.com/file_premium/33e81vpdiuiwohw/CupheD-fIXoNLY.v3.rar/file" },
     { name: "Update 1.3", link: "https://www.mediafire.com/file_premium/39wldnvn22mamsy/C8uph6eadD-Update1.3.4.rar/file" }
   ]
+},
+{
+  id: 6,
+  title: "The Evil Within",
+  description: "The Evil Within es un juego de survival horror creado por Shinji Mikami, el padre de Resident Evil. Sumérgete en un mundo retorcido lleno de horrores inimaginables, criaturas grotescas y trampas mortales, donde la tensión y el suspenso nunca terminan.",
+  genre: "Survival Horror, Terror, Acción",
+  minReq: [
+    "SO: Windows 7/8.1 de 64 bits",
+    "Procesador: i7 con cuatro núcleos",
+    "Memoria: 4 GB de RAM",
+    "Gráficos: GTX 460 o equivalente con 1 GB de VRAM",
+    "DirectX: Versión 11",
+    "Almacenamiento: 50 GB de espacio disponible"
+  ],
+  recReq: [
+    "SO: Windows 7/8.1 de 64 bits",
+    "Procesador: i7 con cuatro núcleos",
+    "Memoria: 4 GB de RAM",
+    "Gráficos: GTX 670 o equivalente con 4 GB de VRAM",
+    "DirectX: Versión 11",
+    "Almacenamiento: 50 GB de espacio disponible"
+  ],
+  image: "Imagenes/2ElCvtK8Dpkn1IWD3LjNLOrB.jpg", // Principal
+  gallery: [
+    "Imagenes/TheEvilWithin-slide.jpg",  // Prueba 1
+    "Imagenes/635504002481655910-The-Evil-With.jpg" // Prueba 2
+  ],
+  download: "https://www.mediafire.com/file/8uil2qmyu1bwr3l/3V1LWH1T1NG.torrent/file",
+ trailer: "https://www.youtube.com/embed/PvR7-pZh_0M"
 }
   ];
   const gamesGrid = document.getElementById("gamesGrid");
