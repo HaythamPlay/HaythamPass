@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
   download: "https://www.mediafire.com/file/eu4bxs264jm3s52/Doki.Doki.Literature.Club.Plus.rar/file",
   trailer: "https://www.youtube.com/embed/kB1663FTpzU"
 },
-    {
+   {
   id: 5,
   title: "Cuphead",
   description: "¡Bienvenido a Cuphead, el juego de acción y disparos que rinde homenaje a los dibujos animados de los años 30! Juega como Cuphead o Mugman en una aventura llena de jefes desafiantes y niveles llenos de acción. Con gráficos dibujados a mano, fondos pintados a mano y música de jazz original, Cuphead ofrece una experiencia única y desafiante.",
@@ -140,10 +140,13 @@ document.addEventListener("DOMContentLoaded", function() {
     "Imagenes/50160870708_71651ecbdc_k.jpg"
   ],
   download: "https://www.mediafire.com/file/mo1pl1jokfqo3y9/Cuphead.rar/file",
-  trailer: "https://www.youtube.com/embed/NN-9SQXoi50"
+  trailer: "https://www.youtube.com/embed/NN-9SQXoi50",
+  extras: [
+    { name: "Fix Online", link: "https://www.mediafire.com/file_premium/33e81vpdiuiwohw/CupheD-fIXoNLY.v3.rar/file" },
+    { name: "Update 1.3", link: "https://www.mediafire.com/file_premium/39wldnvn22mamsy/C8uph6eadD-Update1.3.4.rar/file" }
+  ]
 }
   ];
-
   const gamesGrid = document.getElementById("gamesGrid");
   const modal = document.getElementById("gameModal");
   const closeModal = document.getElementById("closeModal");
@@ -156,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const modalDownload = document.getElementById("modalDownload");
   const modalGallery = document.getElementById("modalGallery");
   const modalPreviewContainer = document.getElementById("modalPreviewContainer");
+  const extrasLinks = document.getElementById("extrasLinks");
 
   function renderGames() {
     gamesGrid.innerHTML = "";
@@ -163,7 +167,6 @@ document.addEventListener("DOMContentLoaded", function() {
       const card = document.createElement("div");
       card.className = "card";
 
-      // Mostrar solo los primeros 100 caracteres + "..." en el resumen
       let shortDesc = game.description;
       if(shortDesc.length > 100){
         shortDesc = shortDesc.substring(0, 100) + "...";
@@ -188,6 +191,23 @@ document.addEventListener("DOMContentLoaded", function() {
     modalImage.src = game.image;
     modalDownload.href = game.download;
 
+    // Extras
+const extrasSection = document.getElementById("modalExtras");
+const extrasLinks = document.getElementById("extrasLinks");
+extrasLinks.innerHTML = "";
+
+if(game.extras && game.extras.length > 0){
+  extrasSection.style.display = "block"; // Mostrar sección
+  game.extras.forEach(extra => {
+    let a = document.createElement("a");
+    a.href = extra.link;
+    a.target = "_blank";
+    a.textContent = extra.name;
+    extrasLinks.appendChild(a);
+  });
+} else {
+  extrasSection.style.display = "none"; // Ocultar sección si no hay extras
+}
     // Requisitos
     modalMinReq.innerHTML = "";
     modalRecReq.innerHTML = "";
@@ -198,7 +218,6 @@ document.addEventListener("DOMContentLoaded", function() {
     modalGallery.innerHTML = "";
     if(game.trailer){
       let trailerThumb = document.createElement("img");
-      // Extraer miniatura de YT
       let videoId = game.trailer.split("embed/")[1];
       trailerThumb.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
       trailerThumb.className = "trailer-thumb";
@@ -214,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function() {
       modalGallery.appendChild(thumb);
     });
 
-    // Inicial preview: trailer si existe
+    // Preview inicial
     if(game.trailer){
       modalPreviewContainer.innerHTML=`<iframe src="${game.trailer}" allowfullscreen></iframe>`;
     } else if(game.gallery[0]){
@@ -224,10 +243,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Cierre del modal y detener trailer
   function closeGameModal() {
     modal.classList.remove("show");
-    modalPreviewContainer.innerHTML = ""; // Esto detiene el trailer
+    modalPreviewContainer.innerHTML = "";
   }
 
   closeModal.addEventListener("click", closeGameModal);
@@ -237,6 +255,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
   renderGames();
 });
-
-
-
