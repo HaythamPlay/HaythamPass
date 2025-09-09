@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "Imagenes/TheEvilWithin-slide.jpg",  // Prueba 1
     "Imagenes/635504002481655910-The-Evil-With.jpg" // Prueba 2
   ],
-  download: "https://www.mediafire.com/file/8uil2qmyu1bwr3l/3V1LWH1T1NG.torrent/file",
+  download: "https://www.mediafire.com/file/ytgb43vpsrpkt2n/3V1LWH1T1NG.torrent/file",
  trailer: "https://www.youtube.com/embed/PvR7-pZh_0M"
 }
   ];
@@ -284,3 +284,4 @@ if(game.extras && game.extras.length > 0){
 
   renderGames();
 });
+
