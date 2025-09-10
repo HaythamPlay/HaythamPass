@@ -290,6 +290,37 @@ document.addEventListener("DOMContentLoaded", function() {
   ],
   download: "https://www.mediafire.com/file/m2xox7t3nzutq3m/Bendy_Lone_Wolf-FLT.rar/file",
   trailer: "https://www.youtube.com/embed/lJE1XQiCkF8"
+},
+{
+  id: 11,
+  title: "Phasmophobia + OnlineSteam",
+  description: "Phasmophobia es un juego de terror cooperativo en línea para 4 jugadores. Tú y tu equipo de investigadores paranormales entrarán en lugares embrujados para reunir pruebas de actividad sobrenatural. Usa equipo especializado para detectar fantasmas, comunícate con ellos y sobrevive al terror.",
+  genre: "Terror, Cooperativo, Multijugador Online",
+  minReq: [
+    "SO: Windows 10 64bit",
+    "Procesador: Intel Core i5-4590 / AMD FX 8350",
+    "Memoria: 8 GB de RAM",
+    "Gráficos: NVIDIA GTX 970 / AMD Radeon R9 290",
+    "DirectX: Versión 11",
+    "Almacenamiento: 21 GB de espacio disponible",
+    "Tarjeta de sonido: Compatible con DirectX"
+  ],
+  recReq: [
+    "SO: Windows 10 64bit",
+    "Procesador: Intel i5-10600 / AMD Ryzen 5 3600",
+    "Memoria: 16 GB de RAM",
+    "Gráficos: NVIDIA RTX 2060 / AMD RX 5700",
+    "DirectX: Versión 12",
+    "Almacenamiento: 21 GB de espacio disponible",
+    "Tarjeta de sonido: Compatible con DirectX"
+  ],
+  image: "Imagenes/11265022.jpg",
+  gallery: [
+    "Imagenes/1124748-phasmophobia-la-chasse-a.jpg",
+    "Imagenes/Phasmophobia-VCR-1200x675.jpg"
+  ],
+  download: "https://www.mediafire.com/file/qqbo9fdl0lzu9vs/Phasmophobia.zip/file",
+  trailer: "https://www.youtube.com/embed/sRa9oeo5KiY"
 }
   ];
   const gamesGrid = document.getElementById("gamesGrid");
