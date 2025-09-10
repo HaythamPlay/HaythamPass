@@ -321,6 +321,93 @@ document.addEventListener("DOMContentLoaded", function() {
   ],
   download: "https://www.mediafire.com/file/qqbo9fdl0lzu9vs/Phasmophobia.zip/file",
   trailer: "https://www.youtube.com/embed/sRa9oeo5KiY"
+},
+{
+  id: 12,
+  title: "Dead Cells",
+  description: "Dead Cells es un juego de acción y plataformas tipo rogue-lite con toques de metroidvania. Explora un castillo en constante cambio, desbloquea armas y habilidades, enfréntate a enemigos desafiantes y descubre secretos mientras intentas escapar en cada nueva partida.",
+  genre: "Acción, Roguelike, Metroidvania",
+  minReq: [
+    "SO: Windows 7+",
+    "Procesador: Intel i5",
+    "Memoria: 2 GB de RAM",
+    "Gráficos: Nvidia 450 GTS / Radeon HD 5750",
+    "DirectX: Versión 9.1",
+    "Almacenamiento: 500 MB de espacio disponible"
+  ],
+  recReq: [
+    "SO: Windows 10",
+    "Procesador: Intel i5+",
+    "Memoria: 4 GB de RAM",
+    "Gráficos: Nvidia GTX 460 / Radeon HD 7800 o superior",
+    "DirectX: Versión 11",
+    "Almacenamiento: 500 MB de espacio disponible"
+  ],
+  image: "Imagenes/250px-Dead_cells_cover_art.jpg",
+  gallery: [
+    "Imagenes/dead-cells-video-game-review-gq.jpg",
+    "Imagenes/ss_b7cf2ca21fe3648c53f808b80393c.jpg"
+  ],
+  download: "https://www.mediafire.com/file/jp3rmvonlea372s/Dead.Cells.elamigos.torrent/file",
+  trailer: "https://www.youtube.com/embed/RvGaSPTcTxc"
+},
+{
+  id: 13,
+  title: "Katana ZERO",
+  description: "Katana ZERO es un juego de acción y plataformas con combate rápido, muertes instantáneas y una narrativa intensa llena de giros. Usa tu katana para abrirte paso a través de enemigos en niveles llenos de acción, ralentiza el tiempo para planear tus movimientos y descubre la verdad detrás de tu pasado.",
+  genre: "Acción, Plataformas, Neo-noir",
+  minReq: [
+    "SO: Windows 7, 8, 8.1, 10 x64",
+    "Procesador: Intel Core2 Duo E5200",
+    "Memoria: 1 GB de RAM",
+    "Gráficos: GeForce 7600 GT o equivalente",
+    "DirectX: Versión 10",
+    "Almacenamiento: 200 MB de espacio disponible"
+  ],
+  recReq: [
+    "SO: Windows 10 x64",
+    "Procesador: Intel Core i3",
+    "Memoria: 2 GB de RAM",
+    "Gráficos: GeForce 8800 GTS o superior",
+    "DirectX: Versión 11",
+    "Almacenamiento: 200 MB de espacio disponible"
+  ],
+  image: "Imagenes/Katana_Zero_cover.jpg",
+  gallery: [
+    "Imagenes/screenshot.jpg",
+    "Imagenes/KZ_featured_Nook-1210x642.png.jpg"
+  ],
+  download: "https://www.mediafire.com/file/w4v3nf07yatqcv9/Katana+ZERO.rar/file",
+  trailer: "https://www.youtube.com/embed/uo2FOBnt11o"
+},
+{
+  id: 14,
+  title: "Katana ZERO + KATANA HERO (Solo inglés)",
+  description: "Esta versión incluye el DLC 'KATANA HERO', disponible únicamente en inglés. Katana ZERO es un juego de acción y plataformas con combate rápido, muertes instantáneas y una narrativa intensa. Usa tu katana para abrirte paso a través de enemigos en niveles llenos de acción, ralentiza el tiempo para planear tus movimientos y descubre la verdad detrás de tu pasado.",
+  genre: "Acción, Plataformas, Neo-noir",
+  minReq: [
+    "SO: Windows 7, 8, 8.1, 10 x64",
+    "Procesador: Intel Core2 Duo E5200",
+    "Memoria: 1 GB de RAM",
+    "Gráficos: GeForce 7600 GT o equivalente",
+    "DirectX: Versión 10",
+    "Almacenamiento: 200 MB de espacio disponible"
+  ],
+  recReq: [
+    "SO: Windows 10 x64",
+    "Procesador: Intel Core i3",
+    "Memoria: 2 GB de RAM",
+    "Gráficos: GeForce 8800 GTS o superior",
+    "DirectX: Versión 11",
+    "Almacenamiento: 200 MB de espacio disponible"
+  ],
+  image: "Imagenes/co9nm9.jpg",
+  gallery: [
+    "Imagenes/Katana-Zero-DLC.jpg",
+    "Imagenes/kzdlc.jpg"
+  ],
+  download: "https://www.mediafire.com/file/78do5mj0jgjelwm/Katana.ZERO.v1.5.9.0.2.zip/file",
+  trailer: "https://www.youtube.com/embed/eDq3kdMRPhY"
 }
   ];
   const gamesGrid = document.getElementById("gamesGrid");
