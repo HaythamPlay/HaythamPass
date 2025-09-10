@@ -172,8 +172,124 @@ document.addEventListener("DOMContentLoaded", function() {
     "Imagenes/TheEvilWithin-slide.jpg",  // Prueba 1
     "Imagenes/635504002481655910-The-Evil-With.jpg" // Prueba 2
   ],
-  download: "https://www.mediafire.com/file/ytgb43vpsrpkt2n/3V1LWH1T1NG.torrent/file",
+  download: "https://www.mediafire.com/file/8uil2qmyu1bwr3l/3V1LWH1T1NG.torrent/file",
  trailer: "https://www.youtube.com/embed/PvR7-pZh_0M"
+},
+{
+  id: 7,
+  title: "Boris and the Dark Survival",
+  description: "Juega como Boris el Lobo, el compañero de dibujos animados de Bendy, mientras exploras el estudio de animación en ruinas. Busca suministros, resuelve acertijos y sobrevive a la amenaza de la Ink Demon que acecha en cada esquina.",
+  genre: "Survival, Horror, Aventura, Indie",
+  minReq: [
+    "SO: Windows 7 o superior",
+    "Procesador: Intel Core i3",
+    "Memoria: 4 GB de RAM",
+    "Gráficos: Intel HD 4000",
+    "DirectX: Versión 10",
+    "Almacenamiento: 1 GB de espacio disponible"
+  ],
+  recReq: [
+    "SO: Windows 10",
+    "Procesador: Intel Core i5",
+    "Memoria: 8 GB de RAM",
+    "Gráficos: NVIDIA GTX 750 Ti o superior",
+    "DirectX: Versión 11",
+    "Almacenamiento: 1 GB de espacio disponible"
+  ],
+  image: "Imagenes/borisandthedarksurvival.jpg",
+  gallery: [
+    "Imagenes/450_1000.jpg",
+    "Imagenes/m_img1.jpg"
+  ],
+  download: "https://www.mediafire.com/file/485nln9fjt4ed32/Boris.and.the.Dark.Survival.rar/file",
+  trailer: "https://www.youtube.com/embed/fgO8GViQNMQ"
+},
+{
+  id: 8,
+  title: "Bendy and the Ink Machine",
+  description: "Un juego de terror en primera persona con un estilo único inspirado en los dibujos animados de los años 30. Explora el antiguo estudio de animación, resuelve acertijos, descubre oscuros secretos y enfréntate a la criatura de tinta que acecha en las sombras.",
+  genre: "Terror, Aventura, Indie, Misterio",
+  minReq: [
+    "SO: Windows 7 o superior",
+    "Procesador: Intel Core i3",
+    "Memoria: 4 GB de RAM",
+    "Gráficos: NVIDIA GeForce GTX 460 / AMD Radeon HD 5850",
+    "DirectX: Versión 11",
+    "Almacenamiento: 2 GB de espacio disponible"
+  ],
+  recReq: [
+    "SO: Windows 10",
+    "Procesador: Intel Core i5",
+    "Memoria: 8 GB de RAM",
+    "Gráficos: NVIDIA GeForce GTX 770 / AMD Radeon R9 280",
+    "DirectX: Versión 11",
+    "Almacenamiento: 2 GB de espacio disponible"
+  ],
+  image: "Imagenes/7288998-bendy-and-the-ink-machin.jpg",
+  gallery: [
+    "Imagenes/28101377c698640c3b51f5b98dd85797.jpg",
+    "Imagenes/ss_f8e224df47533aed9ef34127a6670.jpg"
+  ],
+  download: "https://www.mediafire.com/file/41mth4lok8m4gs2/Bendy.and.the.Ink.Machine.v1.5.1.2.rar/file",
+  trailer: "https://www.youtube.com/embed/kU4w0WgUh18"
+},
+{
+  id: 9,
+  title: "Bendy and the Dark Revival",
+  description: "La esperada secuela de Bendy and the Ink Machine. En esta aventura de terror en primera persona, encarnas a Audrey, atrapada en un estudio de animación retorcido por la tinta. Explora, resuelve acertijos, enfréntate a criaturas demoníacas y descubre la oscura verdad detrás del regreso de Bendy.",
+  genre: "Terror, Aventura, Indie, Misterio",
+  minReq: [
+    "SO: Windows 10 de 64 bits",
+    "Procesador: Intel Core i5-7500 / AMD Ryzen 5 1400",
+    "Memoria: 8 GB de RAM",
+    "Gráficos: NVIDIA GTX 1050 Ti / AMD Radeon RX 570",
+    "DirectX: Versión 11",
+    "Almacenamiento: 15 GB de espacio disponible"
+  ],
+  recReq: [
+    "SO: Windows 10/11 de 64 bits",
+    "Procesador: Intel Core i7-8700 / AMD Ryzen 7 2700X",
+    "Memoria: 16 GB de RAM",
+    "Gráficos: NVIDIA GTX 1660 Ti / AMD Radeon RX 590",
+    "DirectX: Versión 11",
+    "Almacenamiento: 15 GB de espacio disponible"
+  ],
+  image: "Imagenes/DarkRevival.jpg",
+  gallery: [
+    "Imagenes/Tk8QNaTu7LFyDrsh4sdCFfCC.jpg",
+    "Imagenes/85af087d074fe757c84def4ce41614d1.jpg"
+  ],
+  download: "https://www.mediafire.com/file/602j4cqocfm9h2n/Bendy.and.the.Dark.Revival.v1.0.4.0332.rar/file",
+  trailer: "https://www.youtube.com/embed/ZS4ZXBXhowY"
+},
+{
+  id: 10,
+  title: "Bendy: Lone Wolf",
+  description: "Bendy: Lone Wolf es un spin-off de la saga Bendy. En esta entrega controlas a un lobo solitario que debe abrirse paso en un mundo retorcido de tinta y horrores. Explora nuevas áreas, enfrenta enemigos perturbadores y descubre más secretos del universo de Joey Drew Studios.",
+  genre: "Terror, Aventura, Indie, Acción",
+  minReq: [
+    "SO: Windows 10 de 64 bits",
+    "Procesador: Intel Core i5-2400 / AMD FX-6350",
+    "Memoria: 8 GB de RAM",
+    "Gráficos: NVIDIA GTX 760 / AMD Radeon R7 260x",
+    "DirectX: Versión 11",
+    "Almacenamiento: 10 GB de espacio disponible"
+  ],
+  recReq: [
+    "SO: Windows 10/11 de 64 bits",
+    "Procesador: Intel Core i7-3770 / AMD Ryzen 5 1600",
+    "Memoria: 16 GB de RAM",
+    "Gráficos: NVIDIA GTX 1060 / AMD Radeon RX 580",
+    "DirectX: Versión 11",
+    "Almacenamiento: 10 GB de espacio disponible"
+  ],
+  image: "Imagenes/bendy-lone-wolf-tag-page-cover-a.jpg",
+  gallery: [
+    "Imagenes/2e85e5f5c3c1eae6a20c04f8afc43480.jpg",
+    "Imagenes/53a9c8e6d73f1c49c955e55fb7ddc284.jpg"
+  ],
+  download: "https://www.mediafire.com/file/m2xox7t3nzutq3m/Bendy_Lone_Wolf-FLT.rar/file",
+  trailer: "https://www.youtube.com/embed/lJE1XQiCkF8"
 }
   ];
   const gamesGrid = document.getElementById("gamesGrid");
@@ -284,4 +400,3 @@ if(game.extras && game.extras.length > 0){
 
   renderGames();
 });
-
