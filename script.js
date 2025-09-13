@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let games = [
     {
   id: 1,
-  title: "Hollow Knight: Silksong",
+  title: "HOLLOW KNIGHT SILKSONG ESPAÑOL + Update v1.0.28561 + ONLINE STEAM",
   description: "¡Descubre un vasto reino embrujado en Hollow Knight: Silksong! Explora, lucha y sobrevive mientras asciendes a la cima de un vasto reino gobernado por la seda y el canto.",
   genre: "2D con arte dibujado a mano, animaciones muy pulidas y una atmósfera que mezcla melancolía y dinamismo.",
   minReq: [
@@ -564,3 +564,4 @@ Pasarse todo el prólogo, aceptar invitación de un amigo o crear una expedició
 
   renderGames();
 });
+
