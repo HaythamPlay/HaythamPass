@@ -2,35 +2,63 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let games = [
     {
-      id: 1,
-      title: "Hollow Knight: Silksong",
-      description: "¡Descubre un vasto reino embrujado en Hollow Knight: Silksong! Explora, lucha y sobrevive mientras asciendes a la cima de un vasto reino gobernado por la seda y el canto.",
-      genre: "2D con arte dibujado a mano, animaciones muy pulidas y una atmósfera que mezcla melancolía y dinamismo.",
-      minReq: [
-        "SO: Windows 10 version 21H1 (build 19043) or newer",
-        "Procesador: Intel Core i3-3240, AMD FX-4300",
-        "Memoria: 4 GB de RAM",
-        "Gráficos: GeForce GTX 560 Ti (1GB), Radeon HD 7750 (1GB)",
-        "DirectX: Versión 10",
-        "Almacenamiento: 8 GB"
-      ],
-      recReq: [
-        "SO: Windows 10 version 21H1 (build 19043) or newer",
-        "Procesador: Intel Core i5-3470",
-        "Memoria: 8 GB de RAM",
-        "Gráficos: GeForce GTX 1050 (2GB), Radeon R9 380 (2GB)",
-        "DirectX: Versión 10",
-        "Almacenamiento: 8 GB"
-      ],
-      image: "Imagenes/640px-Silksong_cover.jpg",
-      gallery: [
-        "Imagenes/hollow-knight-silksong-es-compat.jpg",
-        "Imagenes/copy-of-untitled-design-59.jpg"
-      ],
-      download: "https://www.mediafire.com/file/xmzci6lp66wfl27/Hollow_Knight_Silksong.rar/file",
-      trailer: "https://www.youtube.com/embed/6XGeJwsUP9c"
-    },
-    {
+  id: 1,
+  title: "Hollow Knight: Silksong",
+  description: "¡Descubre un vasto reino embrujado en Hollow Knight: Silksong! Explora, lucha y sobrevive mientras asciendes a la cima de un vasto reino gobernado por la seda y el canto.",
+  genre: "2D con arte dibujado a mano, animaciones muy pulidas y una atmósfera que mezcla melancolía y dinamismo.",
+  minReq: [
+    "SO: Windows 10 version 21H1 (build 19043) or newer",
+    "Procesador: Intel Core i3-3240, AMD FX-4300",
+    "Memoria: 4 GB de RAM",
+    "Gráficos: GeForce GTX 560 Ti (1GB), Radeon HD 7750 (1GB)",
+    "DirectX: Versión 10",
+    "Almacenamiento: 8 GB"
+  ],
+  recReq: [
+    "SO: Windows 10 version 21H1 (build 19043) or newer",
+    "Procesador: Intel Core i5-3470",
+    "Memoria: 8 GB de RAM",
+    "Gráficos: GeForce GTX 1050 (2GB), Radeon R9 380 (2GB)",
+    "DirectX: Versión 10",
+    "Almacenamiento: 8 GB"
+  ],
+  image: "Imagenes/640px-Silksong_cover.jpg",
+  gallery: [
+    "Imagenes/hollow-knight-silksong-es-compat.jpg",
+    "Imagenes/copy-of-untitled-design-59.jpg"
+  ],
+  download: "https://www.mediafire.com/file/xmzci6lp66wfl27/Hollow_Knight_Silksong.rar/file",
+  trailer: "https://www.youtube.com/embed/6XGeJwsUP9c",
+  extras: [
+  { 
+    name: "Update 1.0.28561", 
+    link: "https://www.mediafire.com/file/xo46d5l7z73otm0/Hol2lowKSilk2son-Update1.0.28561-elamigos.rar/file",
+    text: `►PARA PONER EL UPDATE
+Descargar y descomprimir el archivo
+Ejecutar el SETUP.EXE e instalar en su juego base
+Ejecutar el juego como administrador
+Jugar`
+  },
+  { 
+    name: "Fix Online", 
+    link: "https://www.mediafire.com/file/al7iwkb1wpt586m/HNSilksonFixOnly.rar/file",
+    text: `PARA JUGAR ONLINE
+Descargar y descomprimir el fix online
+Copiar el contenido del fix y pegarlo en su juego instalado
+Ejecutar STEAM con su usuario
+Ejecutar el juego como administrador
+Selecciona una ranura y cárgala en el juego.
+Aceptar una invitación de un amigo.
+Para crear una partida:
+Iniciar partida
+Selecciona una ranura y cárgala en el juego.
+Presionar F5 + Mayús + TAB, invita a tus amigos y espera a que se conecten.
+Pasarse todo el prólogo, aceptar invitación de un amigo o crear una expedición.`
+  }
+],
+  alertMessage: "Si tienen la posibilidad, ¡COMPREN Hollow Knight: Silksong! Apoyemos a los desarrolladores. SteamLatinoamérica: $10 USD o con GAME PASS. Si no pueden comprarlo ahora, descárguenlo y más adelante disfrútenlo como se debe."
+},
+{
       id: 2,
       title: "Hollow Knight",
       description: "Exploras Hallownest, un antiguo reino subterráneo en ruinas, lleno de insectos y criaturas corrompidas. Controlas al Caballero, un ser silencioso con espada en mano (llamada 'aguijón'), que se adentra en las profundidades para descubrir secretos, combatir jefes épicos y enfrentar un destino marcado por la infección que consume al reino.",
@@ -57,8 +85,8 @@ document.addEventListener("DOMContentLoaded", function() {
         "Imagenes/hollow-knight-nintendo-switch-gd.jpg"
       ],
       download: "https://www.mediafire.com/file/14kc0zucuyahcf8/Ho1l00wKn11gh7.rar/file",
-      trailer: "https://www.youtube.com/embed/UAO2urG23S4"
-    },
+      trailer: "https://www.youtube.com/embed/UAO2urG23S4",
+},
 {
   id: 3,
   title: "MiSide + Voces Latino",
@@ -410,6 +438,7 @@ document.addEventListener("DOMContentLoaded", function() {
   trailer: "https://www.youtube.com/embed/eDq3kdMRPhY"
 }
   ];
+
   const gamesGrid = document.getElementById("gamesGrid");
   const modal = document.getElementById("gameModal");
   const closeModal = document.getElementById("closeModal");
@@ -448,36 +477,54 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function openModal(game) {
     modal.classList.add("show");
+
+    const alertContainer = document.getElementById("modalAlert");
+    alertContainer.style.display = "none";
+    alertContainer.classList.remove("show", "hide");
+
+    if(game.alertMessage){
+      setTimeout(() => {
+        alertContainer.textContent = game.alertMessage;
+        alertContainer.style.display = "flex";
+        alertContainer.classList.add("show");
+
+        alertContainer.onclick = () => {
+          alertContainer.classList.remove("show");
+          alertContainer.classList.add("hide");
+          setTimeout(() => { alertContainer.style.display = "none"; }, 400);
+        };
+      }, 950);
+    } else {
+      alertContainer.style.display = "none";
+    }
+
     modalTitle.textContent = game.title;
     modalDescription.textContent = game.description;
     modalGenre.textContent = game.genre;
     modalImage.src = game.image;
     modalDownload.href = game.download;
 
-    // Extras
-const extrasSection = document.getElementById("modalExtras");
-const extrasLinks = document.getElementById("extrasLinks");
-extrasLinks.innerHTML = "";
+    extrasLinks.innerHTML = "";
+    if(game.extras && game.extras.length > 0){
+      game.extras.forEach(extra => {
+        const extraDiv = document.createElement("div");
+        extraDiv.className = "extra-item";
 
-if(game.extras && game.extras.length > 0){
-  extrasSection.style.display = "block"; // Mostrar sección
-  game.extras.forEach(extra => {
-    let a = document.createElement("a");
-    a.href = extra.link;
-    a.target = "_blank";
-    a.textContent = extra.name;
-    extrasLinks.appendChild(a);
-  });
-} else {
-  extrasSection.style.display = "none"; // Ocultar sección si no hay extras
-}
-    // Requisitos
+        const a = document.createElement("a");
+        a.href = extra.link;
+        a.target = "_blank";
+        a.textContent = extra.name;
+
+        extraDiv.appendChild(a);
+        extrasLinks.appendChild(extraDiv);
+      });
+    }
+
     modalMinReq.innerHTML = "";
     modalRecReq.innerHTML = "";
     game.minReq.forEach(req => { let li = document.createElement("li"); li.textContent=req; modalMinReq.appendChild(li); });
     game.recReq.forEach(req => { let li = document.createElement("li"); li.textContent=req; modalRecReq.appendChild(li); });
 
-    // Miniaturas
     modalGallery.innerHTML = "";
     if(game.trailer){
       let trailerThumb = document.createElement("img");
@@ -496,7 +543,6 @@ if(game.extras && game.extras.length > 0){
       modalGallery.appendChild(thumb);
     });
 
-    // Preview inicial
     if(game.trailer){
       modalPreviewContainer.innerHTML=`<iframe src="${game.trailer}" allowfullscreen></iframe>`;
     } else if(game.gallery[0]){
