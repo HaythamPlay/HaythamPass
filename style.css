@@ -133,25 +133,68 @@ header h1 { font-size:28px; font-weight:bold; }
 .requirements { display:flex; gap:20px; margin-top:15px; flex-wrap:wrap; }
 .req-column ul { margin:5px 0 15px 20px; padding:0; list-style-type:disc; color:#ccc; font-size:14px; line-height:1.5; }
 
-/* Extras */
-.modal-extras { margin-top: 10px; }
-.modal-extras span { font-weight: bold; color: #fff; display: block; margin-bottom: 5px; }
+.modal-extras {
+  max-width: 200px; /* o el que quieras */
+}
+
+.extra-item {
+  margin-bottom: 15px; /* espacio entre cada botón + texto */
+}
+
 .modal-extras a {
-  display: inline-block;
-  margin-right: 10px;
+  display: block;          /* cada botón en su línea */
+  padding: 5px 10px;
   background: #28a745;
   color: #fff;
   text-decoration: none;
-  padding: 6px 12px;
   border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
   transition: 0.2s;
 }
-.modal-extras a:hover { background: #218838; }
 
-/* Responsive */
-@media(max-width:768px){
-    .modal-main-section{flex-direction:column; align-items:center;}
-    .modal-thumbnails{flex-direction:row; max-height:none; overflow-x:auto; width:100%;}
-    .modal-main-image img { width:90%; max-width:350px; }
-    .modal-preview-container { aspect-ratio:16/9; }
+.modal-extras a:hover {
+  background: #218838; /* verde más oscuro al pasar mouse */
 }
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translate(-50%, -60%) scale(0.8); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Animación de salida */
+@keyframes fadeOut {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -60%) scale(0.8); }
+}
+
+#modalAlert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 25px 40px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: none;
+  text-align: center;
+  cursor: pointer;
+  max-width: 90%;
+  animation-duration: 0.4s; /* duración de la animación */
+  animation-fill-mode: forwards;
+}
+
+/* Clase para mostrar */
+#modalAlert.show {
+  display: block;
+  animation-name: fadeIn;
+}
+
+/* Clase para ocultar con animación */
+#modalAlert.hide {
+  animation-name: fadeOut;
