@@ -38,6 +38,35 @@ header h1 { font-size:28px; font-weight:bold; }
 .support-message a { color: #5865F2; text-decoration: none; font-weight: bold; }
 .support-message a:hover { color: #4752c4; }
 
+/* Buscador */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#searchInput {
+  width: 100%;
+  max-width: 800px;  /* Cambiado de 500px a 800px */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+#searchInput::placeholder {
+  color: #bbb;
+}
+
+#searchInput:focus {
+  background: #333;
+  box-shadow: 0 0 8px rgba(255,255,255,0.2);
+}
+
 /* Contenedor principal */
 .container { max-width:1200px; margin:20px auto; padding:0 15px; }
 
@@ -134,15 +163,15 @@ header h1 { font-size:28px; font-weight:bold; }
 .req-column ul { margin:5px 0 15px 20px; padding:0; list-style-type:disc; color:#ccc; font-size:14px; line-height:1.5; }
 
 .modal-extras {
-  max-width: 200px; /* o el que quieras */
+  max-width: 200px;
 }
 
 .extra-item {
-  margin-bottom: 15px; /* espacio entre cada botón + texto */
+  margin-bottom: 15px;
 }
 
 .modal-extras a {
-  display: block;          /* cada botón en su línea */
+  display: block;
   padding: 5px 10px;
   background: #28a745;
   color: #fff;
@@ -154,7 +183,7 @@ header h1 { font-size:28px; font-weight:bold; }
 }
 
 .modal-extras a:hover {
-  background: #218838; /* verde más oscuro al pasar mouse */
+  background: #218838;
 }
 
 /* Animación de entrada */
@@ -185,7 +214,7 @@ header h1 { font-size:28px; font-weight:bold; }
   text-align: center;
   cursor: pointer;
   max-width: 90%;
-  animation-duration: 0.4s; /* duración de la animación */
+  animation-duration: 0.4s;
   animation-fill-mode: forwards;
 }
 
@@ -198,3 +227,4 @@ header h1 { font-size:28px; font-weight:bold; }
 /* Clase para ocultar con animación */
 #modalAlert.hide {
   animation-name: fadeOut;
+}
