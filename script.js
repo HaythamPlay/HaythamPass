@@ -458,50 +458,56 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  function openModal(game) {
-    modal.classList.add("show");
+function openModal(game) {
+  modal.classList.add("show");
 
-    const alertContainer = document.getElementById("modalAlert");
+  const alertContainer = document.getElementById("modalAlert");
+  alertContainer.style.display = "none";
+  alertContainer.classList.remove("show", "hide");
+
+  if (game.alertMessage) {
+    setTimeout(() => {
+      alertContainer.textContent = game.alertMessage;
+      alertContainer.style.display = "flex";
+      alertContainer.classList.add("show");
+
+      alertContainer.onclick = () => {
+        alertContainer.classList.remove("show");
+        alertContainer.classList.add("hide");
+        setTimeout(() => { alertContainer.style.display = "none"; }, 400);
+      };
+    }, 950);
+  } else {
     alertContainer.style.display = "none";
-    alertContainer.classList.remove("show", "hide");
+  }
 
-    if(game.alertMessage){
-      setTimeout(() => {
-        alertContainer.textContent = game.alertMessage;
-        alertContainer.style.display = "flex";
-        alertContainer.classList.add("show");
+  modalTitle.textContent = game.title;
+  modalDescription.textContent = game.description;
+  modalGenre.textContent = game.genre;
+  modalImage.src = game.image;
+  modalDownload.href = game.download;
 
-        alertContainer.onclick = () => {
-          alertContainer.classList.remove("show");
-          alertContainer.classList.add("hide");
-          setTimeout(() => { alertContainer.style.display = "none"; }, 400);
-        };
-      }, 950);
-    } else {
-      alertContainer.style.display = "none";
-    }
+  // 🔧 --- Código para mostrar/ocultar extras ---
+  const extrasSection = document.getElementById("modalExtras");
+  extrasLinks.innerHTML = "";
 
-    modalTitle.textContent = game.title;
-    modalDescription.textContent = game.description;
-    modalGenre.textContent = game.genre;
-    modalImage.src = game.image;
-    modalDownload.href = game.download;
+  if (game.extras && game.extras.length > 0) {
+    extrasSection.style.display = "block";
+    game.extras.forEach(extra => {
+      const extraDiv = document.createElement("div");
+      extraDiv.className = "extra-item";
 
-    extrasLinks.innerHTML = "";
-    if(game.extras && game.extras.length > 0){
-      game.extras.forEach(extra => {
-        const extraDiv = document.createElement("div");
-        extraDiv.className = "extra-item";
+      const a = document.createElement("a");
+      a.href = extra.link;
+      a.target = "_blank";
+      a.textContent = extra.name;
 
-        const a = document.createElement("a");
-        a.href = extra.link;
-        a.target = "_blank";
-        a.textContent = extra.name;
-
-        extraDiv.appendChild(a);
-        extrasLinks.appendChild(extraDiv);
-      });
-    }
+      extraDiv.appendChild(a);
+      extrasLinks.appendChild(extraDiv);
+    });
+  } else {
+    extrasSection.style.display = "none";
+  }
 
     modalMinReq.innerHTML = "";
     modalRecReq.innerHTML = "";
