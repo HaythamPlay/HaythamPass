@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
     {
       id: 4,
       title: "Doki Doki Literature Club Plus!",
-      description: "¡Te damos la bienvenida a un mundo de poesía y romance! Escribe poemas para la persona que te gusta y borra los errores que cometas por el camino para conseguir el final perfecto. ¡Es el momento de descubrir por qué DDLC es uno de los juegos de terror psicológicos más queridos de la época!\n\nEres el personaje principal, quien se une a regañadientes al club de literatura en busca de un interés romántico. Con cada poema que escribes y con cada decisión que tomas, irás encandilando a la persona que te gusta y empezarán a desvelar los horrores del romance escolar. ¿Tienes lo que hay que tener para descifrar el código de los simuladores de citas y conseguir el final perfecto?\n\n¡Ahora, la rompedora experiencia original de DDLC se ve potenciada por montones de características nuevas y contenido exclusivo de Doki Doki Literature Club Plus!",
+      description: "¡Te damos la bienvenida a un mundo de poesía y romance! Escribe poemas para la persona que te gusta y borra los errores que cometas por el camino para conseguir el final perfecto. ¡Es el momento de descubrir por qué DDLC es uno de los juegos de terror psicológicos más queridos de la época!\n\nEres el personaje principal, quien se une a regañadientes al club de literatura en busca de un interés romántico. Con cada poema que escribes y con cada decisión que tomas, irás encandilando a la persona que te gusta y empezarán a desvelar los horrores del romance escolar. ¿Tienes lo que hay que tener para descifrar el código de los simuladores de citas y conseguir el final perfecto?\n\n¡Ah ahora, la rompedora experiencia original de DDLC se ve potenciada por montones de características nuevas y contenido exclusivo de Doki Doki Literature Club Plus!",
       genre: "Casual, Indie",
       minReq: [
         "SO *: Windows 7 or higher",
@@ -435,10 +435,28 @@ document.addEventListener("DOMContentLoaded", function() {
   const modalGallery = document.getElementById("modalGallery");
   const modalPreviewContainer = document.getElementById("modalPreviewContainer");
   const extrasLinks = document.getElementById("extrasLinks");
+  const searchInput = document.getElementById("searchInput");
+  const prevPageBtn = document.getElementById("prevPage");
+  const nextPageBtn = document.getElementById("nextPage");
+  const paginationNumbers = document.getElementById("paginationNumbers");
+  const homeButton = document.getElementById("homeButton");
+
+  // Variables de paginación
+  let currentPage = 1;
+  const gamesPerPage = 12;
+  let filteredGames = [];
 
   function renderGames() {
     gamesGrid.innerHTML = "";
-    games.forEach(game => {
+    
+    // Calcular índices de los juegos a mostrar
+    const startIndex = (currentPage - 1) * gamesPerPage;
+    const endIndex = startIndex + gamesPerPage;
+    const gamesToShow = filteredGames.length > 0 ? 
+                        filteredGames.slice(startIndex, endIndex) : 
+                        games.slice(startIndex, endIndex);
+    
+    gamesToShow.forEach(game => {
       const card = document.createElement("div");
       card.className = "card";
 
@@ -456,135 +474,186 @@ document.addEventListener("DOMContentLoaded", function() {
       card.addEventListener("click", () => openModal(game));
       gamesGrid.appendChild(card);
     });
+    
+    // Actualizar controles de paginación
+    updatePagination();
   }
 
-function openModal(game) {
-  modal.classList.add("show");
-
-  const alertContainer = document.getElementById("modalAlert");
-  alertContainer.style.display = "none";
-  alertContainer.classList.remove("show", "hide");
-
-  if (game.alertMessage) {
-    setTimeout(() => {
-      alertContainer.textContent = game.alertMessage;
-      alertContainer.style.display = "flex";
-      alertContainer.classList.add("show");
-
-      alertContainer.onclick = () => {
-        alertContainer.classList.remove("show");
-        alertContainer.classList.add("hide");
-        setTimeout(() => { alertContainer.style.display = "none"; }, 400);
-      };
-    }, 950);
-  } else {
-    alertContainer.style.display = "none";
-  }
-
-  modalTitle.textContent = game.title;
-  modalDescription.textContent = game.description;
-  modalGenre.textContent = game.genre;
-  modalImage.src = game.image;
-  modalDownload.href = game.download;
-
-  // 🔧 --- Código para mostrar/ocultar extras ---
-  const extrasSection = document.getElementById("modalExtras");
-  extrasLinks.innerHTML = "";
-
-  if (game.extras && game.extras.length > 0) {
-    extrasSection.style.display = "block";
-    game.extras.forEach(extra => {
-      const extraDiv = document.createElement("div");
-      extraDiv.className = "extra-item";
-
-      const a = document.createElement("a");
-      a.href = extra.link;
-      a.target = "_blank";
-      a.textContent = extra.name;
-
-      extraDiv.appendChild(a);
-      extrasLinks.appendChild(extraDiv);
-    });
-  } else {
-    extrasSection.style.display = "none";
-  }
-
-    modalMinReq.innerHTML = "";
-    modalRecReq.innerHTML = "";
-    game.minReq.forEach(req => { let li = document.createElement("li"); li.textContent=req; modalMinReq.appendChild(li); });
-    game.recReq.forEach(req => { let li = document.createElement("li"); li.textContent=req; modalRecReq.appendChild(li); });
-
-    modalGallery.innerHTML = "";
-    if(game.trailer){
-      let trailerThumb = document.createElement("img");
-      let videoId = game.trailer.split("embed/")[1];
-      trailerThumb.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-      trailerThumb.className = "trailer-thumb";
-      trailerThumb.addEventListener("click", () => {
-        modalPreviewContainer.innerHTML=`<iframe src="${game.trailer}" allowfullscreen></iframe>`;
+  function updatePagination() {
+    const totalGames = filteredGames.length > 0 ? filteredGames.length : games.length;
+    const totalPages = Math.ceil(totalGames / gamesPerPage);
+    
+    // Limpiar números de página
+    paginationNumbers.innerHTML = "";
+    
+    // Botón Anterior
+    prevPageBtn.disabled = currentPage === 1;
+    
+    // Números de página
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+    
+    // Ajustar si estamos cerca del final
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+    
+    for (let i = startPage; i <= endPage; i++) {
+      const pageNumber = document.createElement("button");
+      pageNumber.className = `pagination-btn ${i === currentPage ? 'active' : ''}`;
+      pageNumber.textContent = i;
+      pageNumber.addEventListener("click", () => {
+        currentPage = i;
+        renderGames();
+        window.scrollTo(0, 0);
       });
-      modalGallery.appendChild(trailerThumb);
+      paginationNumbers.appendChild(pageNumber);
     }
-    game.gallery.forEach(img=>{
-      let thumb = document.createElement("img");
-      thumb.src=img;
-      thumb.addEventListener("click", ()=>{modalPreviewContainer.innerHTML=`<img src="${img}">`;});
-      modalGallery.appendChild(thumb);
-    });
+    
+    // Botón Siguiente
+    nextPageBtn.disabled = currentPage === totalPages;
+  }
 
-    if(game.trailer){
-      modalPreviewContainer.innerHTML=`<iframe src="${game.trailer}" allowfullscreen></iframe>`;
-    } else if(game.gallery[0]){
-      modalPreviewContainer.innerHTML=`<img src="${game.gallery[0]}">`;
+  function openModal(game) {
+    modal.classList.add("show");
+
+    const alertContainer = document.getElementById("modalAlert");
+    alertContainer.style.display = "none";
+    alertContainer.classList.remove("show", "hide");
+
+    if (game.alertMessage) {
+      setTimeout(() => {
+        alertContainer.textContent = game.alertMessage;
+        alertContainer.style.display = "flex";
+        alertContainer.classList.add("show");
+
+        alertContainer.onclick = () => {
+          alertContainer.classList.remove("show");
+          alertContainer.classList.add("hide");
+          setTimeout(() => { alertContainer.style.display = "none"; }, 400);
+        };
+      }, 950);
     } else {
-      modalPreviewContainer.innerHTML=`<img src="${game.image}">`;
+      alertContainer.style.display = "none";
     }
-  }
 
-  function closeGameModal() {
-    modal.classList.remove("show");
-    modalPreviewContainer.innerHTML = "";
-  }
+    modalTitle.textContent = game.title;
+    modalDescription.textContent = game.description;
+    modalGenre.textContent = game.genre;
+    modalImage.src = game.image;
+    modalDownload.href = game.download;
 
-  closeModal.addEventListener("click", closeGameModal);
-  window.addEventListener("click", e=>{
-    if(e.target === modal) closeGameModal();
-  });
+    // 🔧 --- Código para mostrar/ocultar extras ---
+    const extrasSection = document.getElementById("modalExtras");
+    extrasLinks.innerHTML = "";
 
-  renderGames();
+    if (game.extras && game.extras.length > 0) {
+      extrasSection.style.display = "block";
+      game.extras.forEach(extra => {
+        const extraDiv = document.createElement("div");
+        extraDiv.className = "extra-item";
 
-  // Buscador
-  const searchInput = document.getElementById("searchInput");
+        const a = document.createElement("a");
+        a.href = extra.link;
+        a.target = "_blank";
+        a.textContent = extra.name;
 
-  searchInput.addEventListener("input", function () {
-    const searchTerm = this.value.toLowerCase();
-    const filteredGames = games.filter(game => 
-      game.title.toLowerCase().includes(searchTerm) ||
-      game.genre.toLowerCase().includes(searchTerm) ||
-      game.description.toLowerCase().includes(searchTerm)
-    );
-    renderFilteredGames(filteredGames);
-  });
+        extraDiv.appendChild(a);
+        extrasLinks.appendChild(extraDiv);
+      });
+    } else {
+      extrasSection.style.display = "none";
+    }
 
-  function renderFilteredGames(filteredGames) {
-    gamesGrid.innerHTML = "";
-    filteredGames.forEach(game => {
-      const card = document.createElement("div");
-      card.className = "card";
+      modalMinReq.innerHTML = "";
+      modalRecReq.innerHTML = "";
+      game.minReq.forEach(req => { let li = document.createElement("li"); li.textContent=req; modalMinReq.appendChild(li); });
+      game.recReq.forEach(req => { let li = document.createElement("li"); li.textContent=req; modalRecReq.appendChild(li); });
 
-      let shortDesc = game.description;
-      if (shortDesc.length > 100) {
-        shortDesc = shortDesc.substring(0, 100) + "...";
+      modalGallery.innerHTML = "";
+      if(game.trailer){
+        let trailerThumb = document.createElement("img");
+        let videoId = game.trailer.split("embed/")[1];
+        trailerThumb.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        trailerThumb.className = "trailer-thumb";
+        trailerThumb.addEventListener("click", () => {
+          modalPreviewContainer.innerHTML=`<iframe src="${game.trailer}" allowfullscreen></iframe>`;
+        });
+        modalGallery.appendChild(trailerThumb);
       }
+      game.gallery.forEach(img=>{
+        let thumb = document.createElement("img");
+        thumb.src=img;
+        thumb.addEventListener("click", ()=>{modalPreviewContainer.innerHTML=`<img src="${img}">`;});
+        modalGallery.appendChild(thumb);
+      });
 
-      card.innerHTML = `
-        <img src="${game.image}" alt="${game.title}">
-        <h3>${game.title}</h3>
-        <p>${shortDesc}</p>
-      `;
+      if(game.trailer){
+        modalPreviewContainer.innerHTML=`<iframe src="${game.trailer}" allowfullscreen></iframe>`;
+      } else if(game.gallery[0]){
+        modalPreviewContainer.innerHTML=`<img src="${game.gallery[0]}">`;
+      } else {
+        modalPreviewContainer.innerHTML=`<img src="${game.image}">`;
+      }
+    }
 
-      card.addEventListener("click", () => openModal(game));
-      gamesGrid.appendChild(card);
+    function closeGameModal() {
+      modal.classList.remove("show");
+      modalPreviewContainer.innerHTML = "";
+    }
+
+    closeModal.addEventListener("click", closeGameModal);
+    window.addEventListener("click", e=>{
+      if(e.target === modal) closeGameModal();
     });
-  }
+
+    // Event listeners para botones de paginación
+    prevPageBtn.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderGames();
+        window.scrollTo(0, 0);
+      }
+    });
+
+    nextPageBtn.addEventListener("click", () => {
+      const totalGames = filteredGames.length > 0 ? filteredGames.length : games.length;
+      const totalPages = Math.ceil(totalGames / gamesPerPage);
+      
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderGames();
+        window.scrollTo(0, 0);
+      }
+    });
+
+    // Modificar la función de búsqueda para resetear a página 1
+    searchInput.addEventListener("input", function () {
+      const searchTerm = this.value.toLowerCase();
+      filteredGames = games.filter(game => 
+        game.title.toLowerCase().includes(searchTerm) ||
+        game.genre.toLowerCase().includes(searchTerm) ||
+        game.description.toLowerCase().includes(searchTerm)
+      );
+      
+      currentPage = 1; // Resetear a primera página al buscar
+      renderGames();
+    });
+
+    // Agregar funcionalidad al botón de inicio
+    homeButton.style.cursor = "pointer"; // Cambiar el cursor para indicar que es clickeable
+    
+    homeButton.addEventListener("click", () => {
+      // Restablecer búsqueda y paginación
+      searchInput.value = "";
+      filteredGames = [...games];
+      currentPage = 1;
+      renderGames();
+      window.scrollTo(0, 0); // Scroll al inicio de la página
+    });
+
+    // Inicializar paginación al cargar
+    filteredGames = [...games]; // Copia de todos los juegos inicialmente
+    renderGames();
 });
