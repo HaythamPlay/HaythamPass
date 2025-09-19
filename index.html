@@ -9,7 +9,7 @@
 <body>
 
 <header>
-  <h1>HaythamPass</h1>
+  <h1 id="homeButton">HaythamPass</h1>
   <div id="discordButton">
     <a href="https://discord.gg/FcwaArQGbA" target="_blank">Discord</a>
   </div>
@@ -28,6 +28,13 @@
 
 <div class="container">
   <div class="grid" id="gamesGrid"></div>
+  
+  <!-- Controles de paginación -->
+  <div class="pagination" id="pagination">
+    <button id="prevPage" class="pagination-btn">&laquo; Anterior</button>
+    <div class="pagination-numbers" id="paginationNumbers"></div>
+    <button id="nextPage" class="pagination-btn">Siguiente &raquo;</button>
+  </div>
 </div>
 
 <!-- Modal -->
